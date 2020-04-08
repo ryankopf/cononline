@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Google Storage
 gem 'google-cloud-storage', '~> 1.11', require: false
 
+# HAML
+gem "haml-rails", "~> 2.0"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
