@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+.header {
+
+  .title {
+    font-size: 2rem;
+  }
+  .title,.nav {
+    display: inline-block;
+  }
+  .nav {
+
+  }
+}
