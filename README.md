@@ -1,24 +1,42 @@
-# README
+# CON ONLINE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Due to COVID-19, many anime conventions have been forced to cancel.
 
-Things you may want to cover:
+CON ONLINE is an open source platform for conventions to take place.
 
-* Ruby version
+Highlights
 
-* System dependencies
+* Free and open source
 
-* Configuration
+* Support community exhibitors
 
-* Database creation
+* Buy directly from artists and vendors
 
-* Database initialization
+* Share cosplays and photos
 
-* How to run the test suite
+* Be online with other attendees
 
-* Services (job queues, cache servers, search engines, etc.)
+* No advertising or profits made by the Con Online hosts
 
-* Deployment instructions
+If you don't like our CON ONLINE, you are free to host your own! Installation instructions can be found below.
 
-* ...
+# How it works
+
+Anyone can submit a vendor or artist space to CON ONLINE. Vendors and artists must be approved in order to prevent auto-generated spam.
+
+# Installing
+
+Pre-requisites:
+
+* MariaDB Server
+* Linux Server
+* Rails' requirements: Nodejs, yarn, python
+* Nginx Server
+
+1. Setup Ruby on Rails
+2. Run db:setup
+3. Enjoy!
+
+# Copyright
+
+See the Copyright.md file.
