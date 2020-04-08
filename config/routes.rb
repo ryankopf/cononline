@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   resources :vendors
   resources :users
 
-  get '/', to: 'pages:index'
+  get '/', to: 'pages#index'
 end
-
