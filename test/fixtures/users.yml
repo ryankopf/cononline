@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  key: MyString
+  key_made_at: 2020-04-08 01:29:14
+  token: MyString
+  token_made_at: 2020-04-08 01:29:14
+
+two:
+  email: MyString
+  key: MyString
+  key_made_at: 2020-04-08 01:29:14
+  token: MyString
+  token_made_at: 2020-04-08 01:29:14
