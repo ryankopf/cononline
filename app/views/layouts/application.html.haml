@@ -11,6 +11,10 @@
   %body
 
     .header
-      HI!
+      .title
+        = link_to "Con Online", "/"
+      .nav
+        = link_to "Vendors", "/vendors"
+        = link_to "Attendees", "/attendees"
 
     = yield
