@@ -9,21 +9,21 @@
           %li= message
   .form-group
     = form.label :name
-    = form.text_field :name
+    = form.text_field :name, class: 'form-control'
   .form-group
     = form.label :about
-    = form.text_field :about
+    = form.text_field :about, class: 'form-control'
   .form-group
     = form.label :email
-    = form.text_field :email
+    = form.text_field :email, class: 'form-control'
     %small.form-text.text-muted This is where Paypal buttons will go to.
   .form-group
     = form.label :website_url
-    = form.text_field :website_url
+    = form.text_field :website_url, class: 'form-control'
     %small.form-text.text-muted Optional
   .form-group
     = form.label :category
-    = form.select :category, ['artist','dealer']
+    = form.select :category, ['artist','dealer'], class: 'form-control'
   .field
     = form.label :image
     = form.file_field :image
