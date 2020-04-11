@@ -1,0 +1,25 @@
+= form_with(model: product, local: true) do |form|
+  - if product.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(product.errors.count, "error")
+        prohibited this product from being saved:
+      %ul
+        - product.errors.full_messages.each do |message|
+          %li= message
+  = form.hidden_field :vendor_id, value: params[:vendor_id]
+  .form-group
+    = form.label :name
+    = form.text_field :name, class: 'form-control'
+  .form-group
+    = form.label :about
+    = form.text_field :about, class: 'form-control'
+  .form-group
+    = form.label :price
+    = form.text_field :price, class: 'form-control'
+    %small.form-text.text-muted Input just a number of dollars. Cents are not yet supposed. For $50, enter 50
+  .form-group
+    = form.label :image
+    = form.file_field :image
+  .actions
+    = form.submit
