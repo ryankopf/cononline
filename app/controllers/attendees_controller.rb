@@ -1,6 +1,6 @@
 class AttendeesController < ApplicationController
   before_action :set_attendee, only: [:show]
-  before_action :require_login, only: [:new, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_user_attendee, only: [:edit, :update, :destroy]
 
   # GET /attendees
@@ -26,7 +26,7 @@ class AttendeesController < ApplicationController
   # POST /attendees
   # POST /attendees.json
   def create
-    @attendee = Attendee.new(attendee_params)
+    @attendee = @current_user.attendees.new(attendee_params)
 
     respond_to do |format|
       if @attendee.save

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:index]
 
   # GET /users
   # GET /users.json
@@ -54,7 +55,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    #@user.destroy # Generally not safe.
+    #@user.destroy # Generally not safe because there may be objects linked to the user that would then be uneditable.
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }

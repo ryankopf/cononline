@@ -1,0 +1,13 @@
+.col-md-6
+  .card.flex-md-row.mb-4.box-shadow.h-md-250
+    .card-body.d-flex.flex-column.align-items-start
+      %strong.d-inline-block.mb-2.text-primary
+        = attendee.name
+      %h3.mb-0
+        %a.text-dark{:href => url_for(attendee)}
+          = attendee.name
+      .mb-1.text-muted Nov 12
+      %p.card-text.mb-auto
+        = attendee.about
+      %a{:href => url_for(attendee)} View
+    %img.card-img-right.flex-auto.d-none.d-md-block{:alt => "Card image cap", "data-src" => url_for(attendee.image), src: url_for(attendee.image), style: 'width:200px;height:250px;'}/
