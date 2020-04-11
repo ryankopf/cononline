@@ -12,7 +12,7 @@
 %p
   = @vendor.about
 
-%row
+.row
   - for product in @vendor.products
     = render product, locals: {product: product}
 
