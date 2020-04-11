@@ -10,5 +10,5 @@
       %p.card-text.mb-auto
         = attendee.about
       - if @current_user&.attendees.find_by(id: attendee.id)
-        %a{href: attendee, method: :delete, data: {confirm: 'You sure?'}} Delete
+        = link_to "Delete", attendee, method: :delete, data: {confirm: 'You sure?'}
     %img.card-img-right.flex-auto.d-none.d-md-block{:alt => "Card image cap", "data-src" => url_for(attendee.image), src: url_for(attendee.image), style: 'width:200px;height:250px;'}/

@@ -37,6 +37,14 @@ Pre-requisites:
 2. Run db:setup
 3. Enjoy!
 
+# Contributing
+
+See [how to contribute](https://jarv.is/notes/how-to-pull-request-fork-github/) to a Git project. You can also make smaller automated pull requests using the Github website and clicking "edit", which will allow you to fork our project and submit a pull request when you're done.
+
+Never contributed to an open source project before? That's okay!
+
+Forking means to copy the project and make your own clone. You will make your edits and suggested changes there, and then you submit a "pull request", requesting that we accept your changes. Any changes you submit you agree to license under the same license as the rest of the project.
+
 # Copyright
 
 See the Copyright.md file.
