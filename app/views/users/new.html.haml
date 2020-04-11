@@ -8,5 +8,7 @@
 %h3.p-t-3
   Forgot Password
 %form{action: 'forgot', method: 'get'}
-  %input{type:'text',name:'email',placeholder:'email'}
-  %input{type:'submit',value:'Submit'}
+  .form-group
+    %label{for:'email'}
+    %input{type:'text',name:'email',placeholder:'email',class:'form-control'}
+  %input{type:'submit',value:'Submit',class:'btn'}
