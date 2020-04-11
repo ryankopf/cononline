@@ -28,6 +28,10 @@
           %a.p-2.btn.btn-primary{href: '/signup'}
             Register
 
+    = if (@vendor && action_name=="show" && controller_name=="vendors")
+      .rhino{style: "padding:20px;background-image:url('#{url_for(@vendor.image)}');background-size:cover;min-height:200px;"}
+        = @vendor.name
+
     .container
       = yield
       %footer.pt-4.my-md-5.pt-md-5.border-top
