@@ -13,4 +13,4 @@
   %h3.pt-5
     Vendors awaiting approval.
   - for vendor in Vendor.where(approved: false).or(Vendor.where(approved: nil))
-    link_to vendor.name, vendor
+    = link_to vendor.name, vendor
