@@ -1,0 +1,31 @@
+= form_with(model: vendor, local: true) do |form|
+  - if vendor.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(vendor.errors.count, "error")
+        prohibited this vendor from being saved:
+      %ul
+        - vendor.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = form.label :name
+    = form.text_field :name
+  .form-group
+    = form.label :about
+    = form.text_field :about
+  .form-group
+    = form.label :email
+    = form.text_field :email
+    %small.form-text.text-muted This is where Paypal buttons will go to.
+  .form-group
+    = form.label :website_url
+    = form.text_field :website_url
+    %small.form-text.text-muted Optional
+  .form-group
+    = form.label :category
+    = form.select :category, ['artist','dealer']
+  .field
+    = form.label :image
+    = form.file_field :image
+  .actions
+    = form.submit
