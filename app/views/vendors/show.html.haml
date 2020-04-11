@@ -12,8 +12,9 @@
 %p
   = @vendor.about
 
-- for product in @vendor.products
-  = render product, locals: {product: product}
+%row
+  - for product in @vendor.products
+    = render product, locals: {product: product}
 
 %br
 
