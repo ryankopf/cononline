@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/dealers', to: 'vendors#index', category: 'dealer'
   get '/artists', to: 'vendors#index', category: 'artist'
   get '/signup', to: 'users#new'
+  get '/forgot', to: 'users#reset'
   get '/pending', to: 'users#pending'
   get '/login/:id/:key', to: 'users#login'
   get '/vendor/approve/:id', to: 'vendors#approve'

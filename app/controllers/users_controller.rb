@@ -73,6 +73,12 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
 
+  def reset
+    u = User.find_by(email: params[:email])
+    u.send_login_link
+    redirect_to "/", notice: 'Sending reset link.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
