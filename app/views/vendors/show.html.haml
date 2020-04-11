@@ -12,6 +12,10 @@
 %p
   = @vendor.about
 
+- unless @vendor.website_url.blank?
+  %p
+    = link_to @vendor, @vendor.website_url, class: 'btn btn-primary p-2'
+
 .row
   - for product in @vendor.products
     = render product, locals: {product: product}
