@@ -2,31 +2,10 @@
 
 <h1>Attendees</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>About</th>
-      <th>Public</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @attendees.each do |attendee| %>
+  <%= render attendee, locals: {attendee: attendee} %>
+<% end %>
 
-  <tbody>
-    <% @attendees.each do |attendee| %>
-      <tr>
-        <td><%= attendee.user_id %></td>
-        <td><%= attendee.name %></td>
-        <td><%= attendee.about %></td>
-        <td><%= attendee.public %></td>
-        <td><%= link_to 'Show', attendee %></td>
-        <td><%= link_to 'Edit', edit_attendee_path(attendee) %></td>
-        <td><%= link_to 'Destroy', attendee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 

@@ -10,7 +10,7 @@
 = link_to 'I Am A Vendor - New Vendor Signup', new_vendor_path, class: 'btn btn-primary'
 
 - if @current_user&.admin?
-  %h3.pt-2
-    Awaiting approval.
+  %h3.pt-5
+    Vendors awaiting approval.
   - for vendor in Vendor.where(approved: false)
     link_to vendor.name, vendor
