@@ -22,11 +22,11 @@
 
 %br
 
-- if @current_user&.vendors.find_by(id: params[:id])
+- if @current_user&.vendors&.find_by(id: params[:id])
   = link_to 'Add product', new_product_path(vendor_id: @vendor.id), class: 'btn btn-primary'
 
 .editlink
-  - if @current_user&.vendors.find_by(id: params[:id])
+  - if @current_user&.vendors&.find_by(id: params[:id])
     = link_to 'Edit', edit_vendor_path(@vendor)
 
 - if @current_user&.admin?

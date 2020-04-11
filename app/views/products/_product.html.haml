@@ -19,6 +19,6 @@
         %input{:name => "bn", :type => "hidden", :value => "PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest"}/
         %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif", :type => "image"}/
         %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
-      - if @current_user&.vendors.find_by(id: product.vendor_id)
+      - if @current_user&.vendors&.find_by(id: product.vendor_id)
         = link_to 'View', product_path(product), class: 'btn'
         = link_to 'Edit', edit_product_path(product), class: 'btn'
