@@ -10,4 +10,5 @@
       %p.card-text.mb-auto
         = vendor.about
       %a{:href => url_for(vendor)} Shop now
-    %img.card-img-right.flex-auto.d-none.d-md-block{:alt => "Card image cap", "data-src" => url_for(vendor.image), src: url_for(vendor.image), style: 'width:200px;height:250px;'}/
+    = if vendor.image
+      %img.card-img-right.flex-auto.d-none.d-md-block{:alt => "Card image cap", "data-src" => url_for(vendor.image), src: url_for(vendor.image), style: 'width:200px;height:250px;'}/
