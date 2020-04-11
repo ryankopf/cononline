@@ -1,10 +1,15 @@
 class VendorsController < ApplicationController
-  before_action :set_vendor, only: [:show, :edit, :update, :destroy]
+  before_action :set_vendor, only: [:show, :approve, :disapprove]
+  before_action :require_login, only: [:approve, :disapprove, :new, :create, :edit, :update, :destroy]
+  before_action :set_user_vendor, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:approve]
 
   # GET /vendors
   # GET /vendors.json
   def index
-    @vendors = Vendor.all
+    @category = params[:category].nil? ? "Vendors" : params[:category]=="dealer" ? "Dealers Room" : "Artists Alley"
+    @vendors = Vendor.where(approved: true)
+    @vendors = @vendors.where(category: params[:category]) if params[:category]
   end
 
   # GET /vendors/1
@@ -24,7 +29,7 @@ class VendorsController < ApplicationController
   # POST /vendors
   # POST /vendors.json
   def create
-    @vendor = Vendor.new(vendor_params)
+    @vendor = current_user.vendors.new(vendor_params)
 
     respond_to do |format|
       if @vendor.save
@@ -61,14 +66,27 @@ class VendorsController < ApplicationController
     end
   end
 
+  def approve
+    @vendor.update_attribute(:approved, true)
+    redirect_to @vendor
+  end
+
+  def disapprove
+    @vendor.update_attribute(:approved, false)
+    redirect_to @vendor
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vendor
       @vendor = Vendor.find(params[:id])
     end
+    def set_user_vendor
+      @vendor = current_user.vendors.find(params[:id])
+    end
 
     # Only allow a list of trusted parameters through.
     def vendor_params
-      params.require(:vendor).permit(:user_id, :name, :about)
+      params.require(:vendor).permit(:name, :about, :email, :category, :image)
     end
 end

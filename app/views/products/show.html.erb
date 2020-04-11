@@ -1,19 +1,7 @@
+<%= link_to 'Back', products_path %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Vendor:</strong>
-  <%= @product.vendor_id %>
-</p>
+<%= render @product, locals: {product: @product} %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @product.about %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_product_path(@product) if false %>

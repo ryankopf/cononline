@@ -1,5 +1,23 @@
-%h1 Con Online
+.jumbotron.p-3.p-md-5.text-white.rounded.bg-dark
+  %h1.display-4.font-italic Con Online
+  .lead.my-3
+    Welcome to a free, online,
+    %strong
+      open source
+    anime convention.
 
-.welcome-message
-  Welcome to a great con.
+.row.mb-2
+  - for vendor in Vendor.where(category: 'artist').limit(1)
+    = render vendor, locals: {vendor: vendor}
+  - for vendor in Vendor.where(category: 'dealer').limit(1)
+    = render vendor, locals: {vendor: vendor}
+
+.p-3.mb-3.bg-light.rounded
+  %h4.font-italic About
+  %p.mb-0
+    Con Online
+    %em is completely free and open source
+    with no commissions to the organizers.
+    %a{href: 'https://github.com/ryankopf/cononline'}
+      View on Github
 

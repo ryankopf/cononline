@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show]
+  before_action :require_login, only: [:edit, :update, :destroy]
+  before_action :set_vendor, only: [:show]
+  before_action :set_user_product, only: [:edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
@@ -24,7 +27,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = current_user.vendors.find(params[:product][:vendor_id]).products.new(product_params)
 
     respond_to do |format|
       if @product.save
@@ -66,9 +69,16 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
+    def set_user_product
+      require_login
+      @product = current_user.products.find(params[:id])
+    end
+    def set_vendor
+      @vendor = @product.vendor
+    end
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:vendor_id, :name, :about)
+      params.require(:product).permit(:name, :about, :price, :image)
     end
 end

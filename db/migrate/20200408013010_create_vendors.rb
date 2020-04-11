@@ -4,6 +4,9 @@ class CreateVendors < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.string :name
       t.string :about
+      t.string :category
+      t.string :email
+      t.boolean :approved
 
       t.timestamps
     end

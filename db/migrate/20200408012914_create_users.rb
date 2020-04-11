@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :key
       t.datetime :key_made_at
+      t.boolean :is_admin
       t.string :token
       t.datetime :token_made_at
 

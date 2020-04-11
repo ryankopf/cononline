@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :vendor_id
       t.string :name
       t.string :about
+      t.integer :price
 
       t.timestamps
     end

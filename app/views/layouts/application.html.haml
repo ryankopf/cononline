@@ -10,11 +10,51 @@
 
   %body
 
-    .header
-      .title
-        = link_to "Con Online", "/"
-      .nav
-        = link_to "Vendors", "/vendors"
-        = link_to "Attendees", "/attendees"
+    .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.box-shadow
+      %h1.my-0.mr-md-auto.font-weight-normal
+        %a{href: "/"}
+          Con Online
+      %nav.my-2.my-md-0.mr-md-3
+        %a.p-2.text-dark{href: '/dealers'}
+          Dealers
+        %a.p-2.text-dark{href: '/artists'}
+          Artists
+        %a.p-2.text-dark{href: '/attendees'}
+          Attendees
+        - if @current_user
+          %a.p-2.btn.btn-primary{href: "/users/#{@current_user.id}"}
+            Account
+        - else
+          %a.p-2.btn.btn-primary{href: '/signup'}
+            Register
 
-    = yield
+    .container
+      = yield
+      %footer.pt-4.my-md-5.pt-md-5.border-top
+        .row
+          .col-12.col-md
+            %img.mb-2{:alt => "", :height => "24", :src => "https://s3.amazonaws.com/chronopics/0017/9797/am-small_big_thumb.png", :width => "24"}/
+            %small.d-block.mb-3.text-muted © 2020
+          .col-6.col-md
+            %h5 Shop Now
+            %ul.list-unstyled.text-small
+              %li
+                %a.text-muted{:href => "/dealers"} Dealers Room
+              %li
+                %a.text-muted{:href => "/artists"} Artists Alley
+          .col-6.col-md
+            %h5 COVID-19 Resources
+            %ul.list-unstyled.text-small
+              %li
+                %a.text-muted{:href => "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options"} SBA
+              %li
+                %a.text-muted{:href => "https://www.cdc.gov/coronavirus/2019-ncov/index.html"} CDC
+          .col-6.col-md
+            %h5 About
+            %ul.list-unstyled.text-small
+              %li
+                %a.text-muted{:href => "/about"} About
+              %li
+                %a.text-muted{:href => "/privacy"} Privacy
+              %li
+                %a.text-muted{:href => "/terms"} Terms

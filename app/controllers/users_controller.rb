@@ -54,17 +54,29 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    #@user.destroy # Generally not safe.
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  def login
+    u = User.find_by(id: params[:id], key: params[:key])
+    if u.nil?
+      redirect_to "/signup"
+      return true
+    end
+    request.session[:user_id] = u.id
+    @current_user = u
+    redirect_to "/"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
+      redirect_to "/pending" if @user.nil?
     end
 
     # Only allow a list of trusted parameters through.

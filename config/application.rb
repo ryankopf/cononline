@@ -10,11 +10,21 @@ module Cononline
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.hosts.clear
+    config.hosts << 'cononline.app'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.session_store = :active_record_store
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :user_name            => Rails.application.credentials.gmail_username,
+      :password             => Rails.application.credentials.gmail_app_password,
+      :authentication       => "plain",
+      :enable_starttls_auto => true
+    }
+
   end
 end

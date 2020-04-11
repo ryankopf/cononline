@@ -1,0 +1,16 @@
+%p{id: "notice"}
+  = notice
+
+%h1
+  = @category
+
+- for vendor in @vendors.each
+  = render vendor, locals: {vendor: vendor}
+
+= link_to 'I Am A Vendor - New Vendor Signup', new_vendor_path, class: 'btn btn-primary'
+
+- if @current_user&.admin?
+  %h2
+    Awaiting approval.
+  - for vendor in Vendor.where(approved: false)
+    link_to vendor.name, vendor

@@ -1,0 +1,23 @@
+.col-md-3
+  .card
+    %img.card-img-top{:alt => "Card image cap", :src => url_for(product.image)}/
+    .card-body
+      %h5.card-title
+        = product.name
+      %p.card-text
+        = product.about
+      %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+        %input{:name => "cmd", :type => "hidden", :value => "_xclick"}/
+        %input{:name => "business", :type => "hidden", :value => product.vendor.email}/
+        %input{:name => "lc", :type => "hidden", :value => "US"}/
+        %input{:name => "item_name", :type => "hidden", :value => product.name}/
+        %input{:name => "amount", :type => "hidden", :value => product.price}/
+        %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
+        %input{:name => "button_subtype", :type => "hidden", :value => "services"}/
+        %input{:name => "no_note", :type => "hidden", :value => "0"}/
+        %input{:name => "bn", :type => "hidden", :value => "PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest"}/
+        %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif", :type => "image"}/
+        %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
+      - if @current_user&.vendors.find(product.vendor_id)
+        = link_to 'View', product_path(product), class: 'btn'
+        = link_to 'Edit', edit_product_path(product), class: 'btn'

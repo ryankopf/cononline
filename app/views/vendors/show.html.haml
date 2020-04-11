@@ -1,0 +1,31 @@
+%p#notice= notice
+
+.rhino{style: "padding:20px;background-image:url('#{url_for(@vendor.image)}');background-size:cover;min-height:200px;"}
+  = @vendor.name
+
+.breadcrumbs
+  = link_to (@vendor.category || 'All'), vendors_path
+
+%h1
+  = @vendor.name
+
+%p
+  = @vendor.about
+
+- for product in @vendor.products
+  = render product, locals: {product: product}
+
+%br
+
+- if @current_user&.vendors.find_by(id: params[:id])
+  = link_to 'Add product', new_product_path(vendor_id: @vendor.id), class: 'btn btn-primary'
+
+.editlink
+  - if @current_user&.vendors.find_by(id: params[:id])
+    = link_to 'Edit', edit_vendor_path(@vendor)
+
+- if @current_user&.admin?
+  - if @vendor.approved
+    = link_to 'Disapprove', "/vendor/disapprove/#{@vendor.id}"
+  - else
+    = link_to 'Approve', "/vendor/approve/#{@vendor.id}"

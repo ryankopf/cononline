@@ -1,5 +1,7 @@
 class AttendeesController < ApplicationController
-  before_action :set_attendee, only: [:show, :edit, :update, :destroy]
+  before_action :set_attendee, only: [:show]
+  before_action :require_login, only: [:new, :edit, :update, :destroy]
+  before_action :set_user_attendee, only: [:edit, :update, :destroy]
 
   # GET /attendees
   # GET /attendees.json
@@ -65,6 +67,10 @@ class AttendeesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_attendee
       @attendee = Attendee.find(params[:id])
+    end
+    def set_user_attendee
+      require_login
+      @attendee = current_user.attendees.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
