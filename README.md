@@ -2,7 +2,7 @@
 
 Due to COVID-19, many anime conventions have been forced to cancel.
 
-CON ONLINE is an open source platform for conventions to take place.
+[CON ONLINE](https://cononline.app) is an open source platform for conventions to take place.
 
 Highlights
 
