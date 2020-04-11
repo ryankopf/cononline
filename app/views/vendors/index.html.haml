@@ -4,8 +4,9 @@
 %h1
   = @category
 
-- for vendor in @vendors.each
-  = render vendor, locals: {vendor: vendor}
+.row
+  - for vendor in @vendors.each
+    = render vendor, locals: {vendor: vendor}
 
 = link_to 'I Am A Vendor - New Vendor Signup', new_vendor_path, class: 'btn btn-primary'
 
