@@ -28,7 +28,8 @@
           %a.p-2.btn.btn-primary{href: '/signup'}
             Register
 
-
+    = if (@vendor && action_name=="show" && controller_name=="vendors")
+      Vendor
 
     .container
       = yield
