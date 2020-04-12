@@ -1,5 +1,6 @@
-.rhino{style: "padding:20px;background-image:url('#{url_for(@vendor.image) if @vendor.image.attached?}');background-size:cover;height:390px;position:absolute;left:0;width:100%;background-position:top center;"}
-  = @vendor.name
+- if @vendor.image.attached?
+  .rhino{style: "padding:20px;background-image:url('#{url_for(@vendor.image)}');background-size:cover;height:390px;position:absolute;left:0;width:100%;background-position:top center;"}
+    = @vendor.name
 
 .breadcrumbs{style: 'padding-top:400px;'}
   = link_to (@vendor.category || 'All'), vendors_path
