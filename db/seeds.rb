@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+case Rails.env
+when "test"
+  User.create(email: 'kopf1988+admin@gmail.com')
+  User.create(email: 'kopf1988+user')
+  Vendor.create(name: 'Dragon Vending Company', about: 'Dragon vending company sells literal dragons! Not just small parts of dragons, but entire, living, breathing, dragons. Not available in California.')
+end
