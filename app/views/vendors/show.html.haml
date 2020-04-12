@@ -2,7 +2,7 @@
   .rhino{style: "padding:20px;background-image:url('#{url_for(@vendor.image)}');background-size:cover;height:390px;position:absolute;left:0;width:100%;background-position:top center;"}
     = @vendor.name
 
-.breadcrumbs{style: 'padding-top:400px;'}
+.breadcrumbs{style: (@vendor.image.attached? ? 'padding-top:400px;' : '')}
   = link_to (@vendor.category || 'All'), vendors_path
 
 - unless @vendor.category.in?(["artist","dealer"])
