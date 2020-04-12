@@ -31,6 +31,12 @@
             Register
 
     .container
+      - if (@current_user && (!@current_user.email_verified))
+        .email-notice.alert.alert-primary
+          Your email has not yet been verified. Please click the link from your email.
+      - if notice.present?
+        .notice_notice.alert.alert-primary
+          = notice
       = yield
       %footer.pt-4.my-md-5.pt-md-5.border-top
         .row

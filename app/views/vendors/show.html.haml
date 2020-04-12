@@ -6,6 +6,10 @@
 .breadcrumbs{style: 'padding-top:400px;'}
   = link_to (@vendor.category || 'All'), vendors_path
 
+- unless @vendor.category.in?(["artist","dealer"])
+  .alert.alert-secondary
+    Invalid category set.
+
 %h1
   = @vendor.name
 

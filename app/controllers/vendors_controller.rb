@@ -10,6 +10,7 @@ class VendorsController < ApplicationController
     @category = params[:category].nil? ? "Vendors" : params[:category]=="dealer" ? "Dealers Room" : "Artists Alley"
     @vendors = Vendor.where(approved: true)
     @vendors = @vendors.where(category: params[:category]) if params[:category]
+    @vendors = @current_user ? @vendors.or(Vendor.where(user_id: @current_user)) : @vendors
   end
 
   # GET /vendors/1

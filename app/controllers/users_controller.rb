@@ -25,15 +25,22 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    if (existing_user = User.find_by(email: [user_params[:email]]))
+      #u = User.find_by(email: params[:email])
+      existing_user.send_login_link
+      redirect_to "/", notice: 'Sending you a new login link.'
+    else
+      @user = User.new(user_params)
+      respond_to do |format|
+        if @user.save
+          request.session[:user_id] = @user.id
+          @current_user = @user
+          format.html { redirect_to '/pending' }
+          format.json { render :show, status: :created, location: @user }
+        else
+          format.html { render :new }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -62,17 +69,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-    u = User.find_by(id: params[:id], key: params[:key])
-    if u.nil?
-      redirect_to "/signup"
-      return true
-    end
-    request.session[:user_id] = u.id
-    @current_user = u
-    redirect_to "/"
-  end
-
   def reset
     u = User.find_by(email: params[:email])
     u.send_login_link
@@ -88,6 +84,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :key, :key_made_at, :token, :token_made_at)
+      params.require(:user).permit(:email)
     end
 end

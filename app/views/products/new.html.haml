@@ -1,0 +1,5 @@
+.text-muted
+  = @product.vendor.name
+%h1 New Product
+= render 'form', product: @product
+= link_to 'Back', products_path

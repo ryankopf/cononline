@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show]
   before_action :require_login, only: [:new, :edit, :update, :destroy]
-  before_action :set_vendor, only: [:new, :show]
+  before_action :set_vendor, only: [:new]
   before_action :set_user_product, only: [:edit, :update, :destroy]
 
   # GET /products
@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    @product = Product.new(vendor_id: params[:vendor_id])
   end
 
   # GET /products/1/edit
@@ -74,7 +74,7 @@ class ProductsController < ApplicationController
       @product = current_user.products.find(params[:id])
     end
     def set_vendor
-      @vendor = @product.vendor
+      @vendor = Vendor.find(params[:vendor_id])
     end
 
     # Only allow a list of trusted parameters through.
