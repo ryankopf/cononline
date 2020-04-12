@@ -16,8 +16,11 @@
     = form.text_field :about, class: 'form-control'
   .form-group
     = form.label :price
-    = form.text_field :price, class: 'form-control'
-    %small.form-text.text-muted Input just a number of dollars. Cents are not yet supposed. For $50, enter 50
+    = form.text_field :price_text, value: product.get_price, class: 'form-control'
+  .form-group
+    = form.label :shipping_price
+    = form.text_field :shipping_price_text, value: product.get_shipping_price, class: 'form-control'
+    %small.form-text.text-muted Leave this 0 if you only want to charge shipping once per order.
   .form-group
     = form.label :image
     = form.file_field :image

@@ -3,6 +3,9 @@
     - if product.image.attached?
       %img.card-img-top{:alt => "Card image cap", :src => url_for(product.image)}/
     .card-body
+      .text-muted
+        $
+        = product.get_price
       %h5.card-title
         = product.name
       %p.card-text
@@ -12,7 +15,7 @@
         %input{:name => "business", :type => "hidden", :value => product.vendor.email}/
         %input{:name => "lc", :type => "hidden", :value => "US"}/
         %input{:name => "item_name", :type => "hidden", :value => product.name}/
-        %input{:name => "amount", :type => "hidden", :value => product.price}/
+        %input{:name => "amount", :type => "hidden", :value => product.get_combined_price}/
         %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
         %input{:name => "button_subtype", :type => "hidden", :value => "services"}/
         %input{:name => "no_note", :type => "hidden", :value => "0"}/
