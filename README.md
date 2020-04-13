@@ -45,6 +45,15 @@ Never contributed to an open source project before? That's okay!
 
 Forking means to copy the project and make your own clone. You will make your edits and suggested changes there, and then you submit a "pull request", requesting that we accept your changes. Any changes you submit you agree to license under the same license as the rest of the project.
 
+# Future development
+
+* On the dealers and artists page, show a list of all the presently logged-on attendees/cosplayers "browsing now"
+* Enable chatting between attendees/cosplayers using ActionCable
+* Add carts (can be saved to either a user, or if not logged in then to the session)
+* Add inventory amounts to products
+* Convert carts to orders upon payment (log the amount paid for each item, quantity, decrement the product's inventory, etc)
+* Receive payment information from Paypal IPN - payment still goes straight to the user.
+
 # Copyright
 
 See the Copyright.md file.
