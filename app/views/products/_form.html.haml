@@ -7,7 +7,7 @@
       %ul
         - product.errors.full_messages.each do |message|
           %li= message
-  = form.hidden_field :vendor_id, value: params[:vendor_id]
+  = form.hidden_field :vendor_id, value: (params[:vendor_id] || product.vendor_id)
   .form-group
     = form.label :name
     = form.text_field :name, class: 'form-control'
