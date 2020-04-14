@@ -9,6 +9,6 @@ case Rails.env
 when "test"
   User.create(email: 'kopf1988+admin@gmail.com')
   u2 = User.create(email: 'kopf1988@gmail.com')
-  Vendor.create(name: 'Dragon Vending Company', about: 'Dragon vending company sells literal dragons! Not just small parts of dragons, but entire, living, breathing, dragons. Not available in California.', user_id: 2)
+  Vendor.create(name: 'Dragon Vending Company', category: 'dealer', about: 'Dragon vending company sells literal dragons! Not just small parts of dragons, but entire, living, breathing, dragons. Not available in California.', user_id: u2.id, approved: true)
 
 end

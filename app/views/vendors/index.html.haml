@@ -2,7 +2,7 @@
   = @category
 
 .row
-  - for vendor in @vendors.each
+  - for vendor in @vendors.sort{|vendor|vendor.products.size}.reverse.each
     = render vendor, locals: {vendor: vendor}
 
 = link_to 'I Am A Vendor - New Vendor Signup', new_vendor_path, class: 'btn btn-primary'
