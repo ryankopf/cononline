@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  name: MyString
-  about: MyString
+vendor1:
+  user: user1
+  name: Dragon Vendor
+  about: I sell literal dragons please enjoy them. Not available in California.
 
-two:
-  user_id: 
-  name: MyString
-  about: MyString
+vendor2:
+  user: user1
+  name: Cuphead Company LLC
+  about: I sell only cups. Not even cuphead cups.

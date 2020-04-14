@@ -2,7 +2,8 @@ require 'test_helper'
 
 class AttendeesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @attendee = attendees(:one)
+    seed_and_login
+    @attendees = attendees(:attendee1)
   end
 
   test "should get index" do
@@ -24,12 +25,12 @@ class AttendeesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show attendee" do
-    get attendee_url(@attendee)
+    get attendee_url(Attendee.first)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_attendee_url(@attendee)
+    get edit_attendee_url(Attendee.first)
     assert_response :success
   end
 

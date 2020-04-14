@@ -9,5 +9,15 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def initialize_data
+    #host! "https://test.cononline.app"
+    Rails.application.load_seed
+  end
+
+  def seed_and_login
+    initialize_data
+    get "/login/#{User.first.id}/#{User.first.key}"
+  end
+
   # Add more helper methods to be used by all tests here...
 end
