@@ -4,5 +4,6 @@ class Product < ApplicationRecord
   has_one_attached :image
   include HasPrice
   before_save :update_price
+  validates :description, length: { maximum: 3 }
 
 end

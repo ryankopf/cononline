@@ -9,7 +9,7 @@
 <h2>ConOnline.app</h2>
 <p>Welcome to the convention!</p>
 <p>Use this magic link to sign in.</p>
-<p><a href="https://cononline.app/login/<%= @user.id %>/<%= @user.key %>" style="border-radius:5px;background:#CFF;display: inline-block; padding: 20px; text-decoration: none; color: #000;font-weight:bold;">Click here to login</a></p>
+<p><a href="https://<%= Rails.env=='test' ? 'test.' : '' rescue '' %>cononline.app/login/<%= @user.id %>/<%= @user.key %>" style="border-radius:5px;background:#CFF;display: inline-block; padding: 20px; text-decoration: none; color: #000;font-weight:bold;">Click here to login</a></p>
 <p>This convention is build on open source software that we created. Anyone can start a con with it!</p>
 </div>
 </div>
