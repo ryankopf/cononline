@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @cart.user_id
+
+= link_to 'Edit', edit_cart_path(@cart)
+\|
+= link_to 'Back', carts_path

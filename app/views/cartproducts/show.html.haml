@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Quantity:
+  = @cartproduct.quantity
+%p
+  %b Cart:
+  = @cartproduct.cart_id
+%p
+  %b Product:
+  = @cartproduct.product_id
+
+= link_to 'Edit', edit_cartproduct_path(@cartproduct)
+\|
+= link_to 'Back', cartproducts_path
