@@ -6,6 +6,7 @@ user1:
   key_made_at: 2020-04-08 01:29:14
   token: MyString
   token_made_at: 2020-04-08 01:29:14
+  is_admin: true
 
 user2:
   email: dndkslalso@gdse.tsa

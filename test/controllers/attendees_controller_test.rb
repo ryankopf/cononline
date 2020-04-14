@@ -3,7 +3,7 @@ require 'test_helper'
 class AttendeesControllerTest < ActionDispatch::IntegrationTest
   setup do
     seed_and_login
-    @attendees = attendees(:attendee1)
+    @attendee = attendees(:attendee1)
   end
 
   test "should get index" do
@@ -35,7 +35,7 @@ class AttendeesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update attendee" do
-    patch attendee_url(@attendee), params: { attendee: { about: @attendee.about, name: @attendee.name, public: @attendee.public, user_id: @attendee.user_id } }
+    patch attendee_url(@attendee), params: { attendee: { about: @attendee.about, name: @attendee.name, public: @attendee.public } }
     assert_redirected_to attendee_url(@attendee)
   end
 

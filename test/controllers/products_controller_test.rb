@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    seed_and_login
     @product = products(:product1)
   end
 
@@ -11,7 +12,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_product_url
+    get new_product_url(vendor_id: Vendor.first.id)
     assert_response :success
   end
 

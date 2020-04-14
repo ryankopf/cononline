@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 attendee1:
-  user: user2
+  user: user1
   name: Alucard
   about: A cosplay of a vampire.
   public: 
 
 attendee2:
-  user_id: user2
+  user: user1
   name: Tamaki
   about: A host.
   public: 

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class VendorsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    seed_and_login
     @vendor = vendors(:vendor1)
   end
 

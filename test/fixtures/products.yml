@@ -1,14 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 product1:
-  vendor_id: vendor1
+  vendor: vendor1
   name: Big Dragon
   about: This one is literally red.
   price: 599999
   shipping_price: 0
 
 product2:
-  vendor_id: vendor1
+  vendor: vendor1
   name: Dragon Keychain
   about: Keychains are really cool aren't they.
   price: 100
