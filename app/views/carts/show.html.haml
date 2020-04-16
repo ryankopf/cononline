@@ -1,9 +1,31 @@
-%p#notice= notice
+%h1 Your Cart
 
-%p
-  %b User:
-  = @cart.user_id
+- vendors = Vendor.where('id IN (?)',@current_cart.cartproducts.map{|c|c.product.vendor_id})
+- for vendor in vendors
+  - total = 0
+  - shipping_total = 0
+  - cartproducts = []
+  %h3.pt-2
+    = vendor.name
+  - for cartproduct in @current_cart.cartproducts.select{|c|c.product.vendor_id == vendor.id}
+    = render cartproduct
+    - total += cartproduct.product.price
+    - shipping_total += cartproduct.product.shipping_price
+    - cartproducts.push(cartproduct)
 
-= link_to 'Edit', edit_cart_path(@cart)
-\|
-= link_to 'Back', carts_path
+  = render partial: "carts/checkout", locals: {vendor: vendor, total: total, shipping_total: shipping_total, cartproducts: cartproducts}
+
+%h2.pt-3 Past Orders
+- orders = Order.where('id IN (?)',request.session[:orders])
+- orders = orders.or(Order.where(user_id: @current_user.id)) if @current_user
+- for order in orders
+  Order!
+- if orders.empty?
+  %p No past orders found.
+
+.decisions.pt-5
+  - if false # unless @current_cart.cartproducts.empty?
+    %a{class: 'btn btn-primary', href: '/checkout'}
+      Checkout
+  %a{class: 'btn btn-light', href: '/vendors'}
+    Keep Shopping

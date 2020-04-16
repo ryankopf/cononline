@@ -1,0 +1,15 @@
+%form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+  %input{:name => "cmd", :type => "hidden", :value => "_xclick"}/
+  %input{:name => "business", :type => "hidden", :value => vendor.email}/
+  %input{:name => "lc", :type => "hidden", :value => "US"}/
+  %input{:name => "item_name", :type => "hidden", :value => vendor.name}/
+  %input{:name => "item_number", :type => "hidden", :value => @current_cart.id}/
+  %input{:name => "amount", :type => "hidden", :value => Product.new.send(:integer_to_string,total)}/
+  %input{:name => "currency_code", :type => "hidden", :value => "USD"}/
+  %input{:name => "button_subtype", :type => "hidden", :value => "services"}/
+  %input{:name => "no_note", :type => "hidden", :value => "0"}/
+  %input{:name => "shipping", :type => "hidden", :value => Product.new.send(:integer_to_string,shipping_total)}/
+  %input{:name => "bn", :type => "hidden", :value => "PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest"}/
+  %input{:name => "notify_url", :type => "hidden", :value => "https://cononline.app/paypal/ipn/#{vendor.id}/#{cartproducts.map{|p|p.product_id}.join('-')}/#{cartproducts.map{|p|p.quantity}.join('-')}"}/
+  %input{:alt => "PayPal - The safer, easier way to pay online!", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif", :type => "image"}/
+  %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/

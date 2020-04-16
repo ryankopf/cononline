@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   resources :vendors
   resources :users
 
+  # Better URLs for users.
+  post '/add/:id', to: 'cartproducts#create'
+  post '/remove/:id', to: 'cartproducts#destroy'
+  post '/paypal/ipn/:vendor_id/:products/:quantities', to: 'paypal#ipn'
+  get '/cart', to: 'carts#show'
+
   get '/', to: 'pages#index'
   get '/about', to: 'pages#about'
   get '/privacy', to: 'pages#privacy'

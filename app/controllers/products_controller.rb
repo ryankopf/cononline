@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show, :addtocart]
   before_action :require_login, only: [:new, :edit, :update, :destroy]
   before_action :set_vendor, only: [:new]
   before_action :set_user_product, only: [:edit, :update, :destroy]
@@ -13,6 +13,10 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+  end
+
+  def addtocart
+    current_cart.add_product(@product)
   end
 
   # GET /products/new

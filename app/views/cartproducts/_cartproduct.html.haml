@@ -1,0 +1,11 @@
+- product = cartproduct.product
+.d-flex.p-2.pb-4{class: "product_#{cartproduct.product_id}"}
+  .name{style:'width:100%;'}
+    = cartproduct.product.name
+  .text_muted{style:'width:100px;'}
+    = cartproduct.quantity
+  .text_muted{style:'width:120px;'}
+    $
+    = product.get_price(cartproduct.quantity)
+  .buttons
+    = link_to "Remove", "/remove/#{cartproduct.product.id}", class: '', method: :post, remote: true

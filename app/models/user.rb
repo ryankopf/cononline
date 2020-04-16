@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :vendors
   has_many :products, through: :vendors
   has_many :attendees
+  has_one :cart
 
   def setup_login_information
     self.key = SecureRandom.hex

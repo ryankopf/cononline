@@ -7,9 +7,9 @@ module HasPrice
     self.price = string_to_integer(price_text) unless price_text.blank?
     self.shipping_price = string_to_integer(shipping_price_text) unless shipping_price_text.blank?
   end
-  def get_price
+  def get_price(quantity = 1)
     return 0 if self.price.nil?
-    integer_to_string(self.price)
+    integer_to_string(self.price * quantity)
   end
   def get_shipping_price
     return 0 if self.shipping_price.nil?
