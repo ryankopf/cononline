@@ -16,6 +16,7 @@ class CartTest < ActiveSupport::TestCase
       assert_difference('Orderproduct.count',1) do
         cart.paid!({mc_gross: 100, mc_fee: 100, txn_id: 'test', payer_email: 'some@body.com', receiver_email: 'some@bodyelse.com', quantities: '1', products: "#{Product.first.id}",
                   vendor_id: Product.first.vendor_id})
+        puts Orderproduct.last.attributes
       end
     end
   end
