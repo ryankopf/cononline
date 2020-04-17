@@ -72,3 +72,4 @@ class AddressesController < ApplicationController
       params.require(:address).permit(:user_id, :address1, :address2, :city, :state, :zipcode)
     end
 end
+

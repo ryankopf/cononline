@@ -72,3 +72,4 @@ class OrderproductsController < ApplicationController
       params.require(:orderproduct).permit(:quantity, :price, :order_id, :status)
     end
 end
+

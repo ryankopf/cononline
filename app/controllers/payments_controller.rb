@@ -72,3 +72,4 @@ class PaymentsController < ApplicationController
       params.require(:payment).permit(:order_id, :vendor_id, :amount, :method)
     end
 end
+
