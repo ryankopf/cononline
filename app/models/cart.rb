@@ -8,8 +8,8 @@ class Cart < ApplicationRecord
     cart_product.increment!(:quantity)
   end
 
-  def remove_product(product,quantity)
-    cart_product = Cartproduct.find_or_create_by(cart_id: self.id, product_id: product.id)
+  def remove_product(product_id,quantity)
+    cart_product = Cartproduct.find_or_create_by(cart_id: self.id, product_id: product_id)
     cart_product.decrement!(:quantity)
     cart_product.destroy if quantity <= 0
   end
