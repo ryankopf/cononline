@@ -2,7 +2,7 @@
 
 - vendors = Vendor.where('id IN (?)',@current_cart.cartproducts.map{|c|c.product.vendor_id})
 - for vendor in vendors
-  .vendor.p-3
+  .vendor.pt-3.pb-3
     - total = 0
     - shipping_total = 0
     - cartproducts = []
