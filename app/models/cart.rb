@@ -10,7 +10,7 @@ class Cart < ApplicationRecord
 
   def remove_product(product_id,quantity)
     cart_product = Cartproduct.find_or_create_by(cart_id: self.id, product_id: product_id)
-    cart_product.decrement!(:quantity)
+    cart_product.decrement!(quantity)
     cart_product.destroy if quantity <= 0
   end
 
@@ -23,7 +23,7 @@ class Cart < ApplicationRecord
     quantities = params[:quantities].split('-')
     product_ids = params[:products].split('-')
     product_ids.each_with_index do |product_id, i|
-      remove_product(product_id, quantities[i])
+      remove_product(product_id, quantities[i].to_i)
     end
     order = Order.create(user_id: self.user_id, vendor_id: params[:vendor_id])
     order.add_items(products, quantities)
