@@ -31,4 +31,10 @@ class Cart < ApplicationRecord
     return order
   end
 
+  def absorb_other_cart(old_session_cart)
+    old_session_cart.cartproducts.each do |c|
+      c.update_attribute(:cart_id,self.id)
+    end
+  end
+
 end

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_current_user
   before_action :current_cart
+  before_action :combine_carts
 
   def set_current_user
     current_user
@@ -32,6 +33,11 @@ class ApplicationController < ActionController::Base
   end
   def require_admin
     redirect_to '/signup' unless @current_user&.admin?
+  end
+  def combine_carts
+    if cart_from_user && cart_from_session
+      cart_from_user.absorb_other_cart(cart_from_session)
+    end
   end
 
 end

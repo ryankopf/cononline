@@ -9,7 +9,7 @@
       .mb-1.text-muted Cosplayer
       %p.card-text.mb-auto
         = attendee.about
-      - if @current_user&.attendees.find_by(id: attendee.id)
+      - if @current_user&.attendees&.find_by(id: attendee.id)
         = link_to "Delete", attendee, method: :delete, data: {confirm: 'You sure?'}
     - if attendee.image.attached?
       %img.card-img-right.flex-auto.d-none.d-md-block{:alt => "Card image cap", "data-src" => url_for(attendee.image), src: url_for(attendee.image), style: 'width:200px;height:250px;'}
