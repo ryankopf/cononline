@@ -72,3 +72,4 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:user_id, :address_id)
     end
 end
+
