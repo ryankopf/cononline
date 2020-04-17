@@ -1,5 +1,4 @@
 %h1 Listing orders
 - @orders.each do |order|
-  - for orderproduct in order.orderproducts
-    = render orderproduct
+  = render order
 
