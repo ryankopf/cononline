@@ -1,4 +1,6 @@
 class PaypalController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def ipn
     unless request.post?
       head(:bad_request)
