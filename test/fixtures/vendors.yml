@@ -4,8 +4,10 @@ vendor1:
   user: user1
   name: Dragon Vendor
   about: I sell literal dragons please enjoy them. Not available in California.
+  email: vendor@dragon.com
 
 vendor2:
   user: user1
   name: Cuphead Company LLC
   about: I sell only cups. Not even cuphead cups.
+  email: head@cuphead.com

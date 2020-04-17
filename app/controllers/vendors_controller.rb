@@ -2,7 +2,7 @@ class VendorsController < ApplicationController
   before_action :set_vendor, only: [:show, :approve, :disapprove]
   before_action :require_login, only: [:approve, :disapprove, :new, :create, :edit, :update, :destroy]
   before_action :set_user_vendor, only: [:edit, :update, :destroy]
-  before_action :require_admin, only: [:approve]
+  before_action :require_admin, only: [:approve, :disapprove]
 
   # GET /vendors
   # GET /vendors.json
@@ -60,7 +60,7 @@ class VendorsController < ApplicationController
   # DELETE /vendors/1
   # DELETE /vendors/1.json
   def destroy
-    @vendor.destroy
+    #@vendor.destroy # This would destroy records of past purchases.
     respond_to do |format|
       format.html { redirect_to vendors_url, notice: 'Vendor was successfully destroyed.' }
       format.json { head :no_content }

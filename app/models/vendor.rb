@@ -3,7 +3,9 @@ class Vendor < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :products, dependent: :destroy
+  has_many :orders
   validate :check_website_url
+  validates :email, presence: true
 
   def check_website_url
     return if self.website_url.blank?
