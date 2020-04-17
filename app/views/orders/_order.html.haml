@@ -1,6 +1,6 @@
 .order
   %h2
     Order #
-    = @order.id
-  - for orderproduct in @order.orderproducts
+    = order.id
+  - for orderproduct in order.orderproducts
     = render orderproduct
