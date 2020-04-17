@@ -2,18 +2,19 @@
 
 - vendors = Vendor.where('id IN (?)',@current_cart.cartproducts.map{|c|c.product.vendor_id})
 - for vendor in vendors
-  - total = 0
-  - shipping_total = 0
-  - cartproducts = []
-  %h3.pt-5
-    = vendor.name
-  - for cartproduct in @current_cart.cartproducts.select{|c|c.product.vendor_id == vendor.id}
-    = render cartproduct
-    - total += cartproduct.product.price.to_i
-    - shipping_total += cartproduct.product.shipping_price.to_i
-    - cartproducts.push(cartproduct)
+  .vendor.p-3
+    - total = 0
+    - shipping_total = 0
+    - cartproducts = []
+    %h3.pt-5
+      = vendor.name
+    - for cartproduct in @current_cart.cartproducts.select{|c|c.product.vendor_id == vendor.id}
+      = render cartproduct
+      - total += cartproduct.product.price.to_i
+      - shipping_total += cartproduct.product.shipping_price.to_i
+      - cartproducts.push(cartproduct)
 
-  = render partial: "carts/checkout", locals: {vendor: vendor, total: total, shipping_total: shipping_total, cartproducts: cartproducts}
+    = render partial: "carts/checkout", locals: {vendor: vendor, total: total, shipping_total: shipping_total, cartproducts: cartproducts}
 
 %h2.pt-3 Past Orders
 - orders = Order.where('id IN (?)',request.session[:orders])
