@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :orderproducts
+  has_many :payments
 
   def add_items(products,quantities)
     products.each_with_index do |product_id, i|

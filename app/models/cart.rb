@@ -20,8 +20,8 @@ class Cart < ApplicationRecord
     transaction_id = params[:txn_id]
     payer_email = params[:payer_email]
     receiver_email = params[:receiver_email]
-    quantities = params[:quantities]
-    product_ids = params[:products]
+    quantities = params[:quantities].split('-')
+    product_ids = params[:products].split('-')
     product_ids.each_with_index do |product_id, i|
       remove_product(product_id, quantities[i])
     end
