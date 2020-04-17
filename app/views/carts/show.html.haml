@@ -5,7 +5,7 @@
   - total = 0
   - shipping_total = 0
   - cartproducts = []
-  %h3.pt-2
+  %h3.pt-5
     = vendor.name
   - for cartproduct in @current_cart.cartproducts.select{|c|c.product.vendor_id == vendor.id}
     = render cartproduct
