@@ -1,0 +1,11 @@
+- product = orderproduct.product
+.d-flex.p-2.pb-4{class: "product_#{orderproduct.product_id}"}
+  .name{style:'width:100%;'}
+    = product.name
+  .text_muted{style:'width:100px;'}
+    = orderproduct.quantity
+  .text_muted{style:'width:120px;'}
+    $
+    = product.get_price(orderproduct.quantity)
+  .buttons
+    = link_to "Mark Shipped", "/ship/#{cartproduct.product.id}", class: '', method: :post, remote: true

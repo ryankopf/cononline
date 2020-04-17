@@ -1,12 +1,2 @@
-%p#notice= notice
-
-%p
-  %b User:
-  = @order.user_id
-%p
-  %b Address:
-  = @order.address_id
-
-= link_to 'Edit', edit_order_path(@order)
-\|
-= link_to 'Back', orders_path
+- for orderproduct in @order.orderproducts
+  = render orderproduct

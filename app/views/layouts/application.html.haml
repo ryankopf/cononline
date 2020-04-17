@@ -33,6 +33,9 @@
             - else
               %a.p-2.btn.btn-primary{href: '/signup'}
                 Register
+            - if @current_user&.vendors.present?
+              %a.p-2.btn.btn-secondary{href: '/orders'}
+                Orders
 
     .container
       - if (@current_user && (!@current_user.email_verified))
