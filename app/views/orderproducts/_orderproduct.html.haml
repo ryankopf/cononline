@@ -8,4 +8,4 @@
     $
     = product.get_price(orderproduct.quantity)
   .buttons
-    = link_to "Mark Shipped", "/ship/#{cartproduct.product.id}", class: '', method: :post, remote: true
+    = link_to "Mark Shipped", "/ship/#{product.id}", class: '', method: :post, remote: true
