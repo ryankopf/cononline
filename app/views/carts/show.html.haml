@@ -9,8 +9,8 @@
     = vendor.name
   - for cartproduct in @current_cart.cartproducts.select{|c|c.product.vendor_id == vendor.id}
     = render cartproduct
-    - total += cartproduct.product.price
-    - shipping_total += cartproduct.product.shipping_price
+    - total += cartproduct.product.price.to_i
+    - shipping_total += cartproduct.product.shipping_price.to_i
     - cartproducts.push(cartproduct)
 
   = render partial: "carts/checkout", locals: {vendor: vendor, total: total, shipping_total: shipping_total, cartproducts: cartproducts}
