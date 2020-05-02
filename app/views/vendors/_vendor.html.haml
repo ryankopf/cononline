@@ -1,6 +1,6 @@
 .col-md-6
-  .card.flex-md-row.mb-4.box-shadow.h-md-250
-    .card-body.d-flex.flex-column.align-items-start
+  .card.flex-md-row.mb-4.box-shadow.h-md-250.row
+    .card-body.d-flex.flex-column.align-items-start.col-md-8
       %strong.d-inline-block.mb-2.text-primary
         = vendor.category
       %h3.mb-0
@@ -10,4 +10,4 @@
         = vendor.about
       %a{:href => url_for(vendor)} Shop now
     - if vendor.image.attached?
-      %img.card-img-right.flex-auto.d-none.d-md-block{:alt => "Card image cap", "data-src" => url_for(vendor.image), src: url_for(vendor.image), style: 'width:200px;height:250px;'}
+      %img.card-img-right.flex-auto.d-none.d-md-block.col-md-4{:alt => "Card image cap", "data-src" => url_for(vendor.image), src: url_for(vendor.image)}

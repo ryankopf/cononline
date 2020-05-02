@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :products, through: :vendors
   has_many :attendees
   has_one :cart
+  attr_accessor :dont_email
+  validates :email, uniqueness: true
 
   def setup_login_information
     self.key = SecureRandom.hex
@@ -14,7 +16,7 @@ class User < ApplicationRecord
   end
 
   def send_login_link
-    UserMailer.with(user: self).new_user_email.deliver_later
+    UserMailer.with(user: self).new_user_email.deliver_later unless dont_email
   end
 
   def admin?
