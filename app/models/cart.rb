@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, required: false
   has_many :cartproducts
 
   def add_product(product)
