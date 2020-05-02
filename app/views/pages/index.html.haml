@@ -9,9 +9,9 @@
     %a.btn.btn-lg.btn-success{:href => "/vendors", :role => "button"} Shop now
 
 .row.mb-2
-  - for vendor in Vendor.where(category: 'artist').limit(2)
+  - for vendor in Vendor.where(category: 'artist').sort{|vendor|vendor.products.size}.reverse[0..1]
     = render vendor, locals: {vendor: vendor}
-  - for vendor in Vendor.where(category: 'dealer').limit(2)
+  - for vendor in Vendor.where(category: 'dealer').sort{|vendor|vendor.products.size}.reverse[0..1]
     = render vendor, locals: {vendor: vendor}
 
 .p-3.mb-3.bg-light.rounded

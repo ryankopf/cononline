@@ -12,8 +12,10 @@
         = product.about
       = link_to "Add to Cart", "/add/#{product.id}", class: 'btn btn-primary', method: :post, remote: true
       - if @current_user&.vendors&.find_by(id: product.vendor_id)
+        .edit-button.pt-3
+          = link_to "Edit Product", edit_product_path(product)
         .delete-button.pt-3
-          = link_to "Delete Product", "/add/#{product.id}", class: 'btnx xbtn-primary', method: :post, remote: true
+          = link_to "Delete Product", product, method: :delete, remote: true
       - if false
         %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
           %input{:name => "cmd", :type => "hidden", :value => "_xclick"}/
