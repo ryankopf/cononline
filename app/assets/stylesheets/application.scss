@@ -35,3 +35,8 @@
 .card-img-right {
   max-width: 100%;
 }
+.card-img-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
