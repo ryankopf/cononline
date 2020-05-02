@@ -7,7 +7,7 @@
     - shipping_total = 0
     - cartproducts = []
     %h3.pt-5
-      = vendor.name
+      = link_to vendor.name, vendor, class: 'text-dark'
     - for cartproduct in @current_cart.cartproducts.select{|c|c.product.vendor_id == vendor.id}
       = render cartproduct
       - total += cartproduct.product.price.to_i
