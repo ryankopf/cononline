@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  belongs_to :cart, required: false
   belongs_to :user, required: false
   belongs_to :vendor
   has_many :orderproducts

@@ -25,7 +25,7 @@ class Cart < ApplicationRecord
     product_ids.each_with_index do |product_id, i|
       remove_product(product_id, quantities[i].to_i)
     end
-    order = Order.create(user_id: self.user_id, vendor_id: params[:vendor_id])
+    order = Order.create(user_id: self.user_id, vendor_id: params[:vendor_id], cart_id: self.id)
     order.add_items(product_ids, quantities)
     Payment.create(order_id: order, vendor_id: order.vendor_id, amount: amount_paid, method: "Paypal")
     return order
