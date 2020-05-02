@@ -10,4 +10,5 @@
         = vendor.about
       %a{:href => url_for(vendor)} Shop now
     - if vendor.image.attached?
-      %img.card-img-right.flex-auto.d-none.d-md-block.col-md-4{:alt => "Card image cap", "data-src" => url_for(vendor.image), src: url_for(vendor.image)}
+      .col-md-4
+        %img.card-img-right{:alt => "Card image cap", "data-src" => url_for(vendor.image), src: url_for(vendor.image)}
