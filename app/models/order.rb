@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, required: false
+  belongs_to :vendor
   has_many :orderproducts
   has_many :payments
 
