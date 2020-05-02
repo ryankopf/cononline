@@ -9,6 +9,10 @@ case Rails.env
 when "test"
   User.create(email: 'kopf1988+admin@gmail.com')
   u2 = User.create(email: 'kopf1988@gmail.com')
-  Vendor.create(name: 'Dragon Vending Company', category: 'dealer', about: 'Dragon vending company sells literal dragons! Not just small parts of dragons, but entire, living, breathing, dragons. Not available in California.', user_id: u2.id, approved: true)
-
+  Vendor.create(name: 'Dragon Vending Company', category: 'dealer',
+                about: 'Dragon vending company sells literal dragons! Not just small parts of dragons, but entire, living, breathing, dragons. Not available in California.',
+                user_id: u2.id, approved: true, image: Rails.root.join("app/assets/images/dragon-company.png").open, approved: true)
+  Vendor.create(name: 'Fake spam company not approved.', category: 'dealer',
+                about: 'This company does not really exist.',
+                user_id: u2.id, approved: false, image: Rails.root.join("app/assets/images/dragon-company.png").open, approved: true)
 end
