@@ -54,4 +54,4 @@ Forking means to copy the project and make your own clone. You will make your ed
 
 # Copyright
 
-See the Copyright.md file.
+See the License.md file.
