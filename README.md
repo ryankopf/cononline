@@ -47,12 +47,10 @@ Forking means to copy the project and make your own clone. You will make your ed
 
 # Future development
 
+* Make sure carts transfer from not-logged-in to the logged-in user when you login after adding products first.
 * On the dealers and artists page, show a list of all the presently logged-on attendees/cosplayers "browsing now"
 * Enable chatting between attendees/cosplayers using ActionCable
-* Add carts (can be saved to either a user, or if not logged in then to the session)
-* Add inventory amounts to products
-* Convert carts to orders upon payment (log the amount paid for each item, quantity, decrement the product's inventory, etc)
-* Receive payment information from Paypal IPN - payment still goes straight to the user.
+* More testing of the products, carts, and orders features.
 
 # Copyright
 
