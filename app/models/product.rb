@@ -9,4 +9,8 @@ class Product < ApplicationRecord
   validates :name, length: { minimum: 3 }
   validates :about, length: { maximum: 250 }
 
+  def destroy
+    update_attribute(:deleted, true)
+  end
+
 end
