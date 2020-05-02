@@ -19,6 +19,7 @@
 %h2.pt-3 Past Orders
 - orders = Order.where('id IN (?)',request.session[:orders])
 - orders = orders.or(Order.where(user_id: @current_user.id)) if @current_user
+- orders = orders.or(Order.where(cart_id: @current_cart.id)) if @current_cart
 - for order in orders
   Order!
 - if orders.empty?
