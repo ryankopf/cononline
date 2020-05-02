@@ -21,7 +21,11 @@
 - orders = orders.or(Order.where(user_id: @current_user.id)) if @current_user
 - orders = orders.or(Order.where(cart_id: @current_cart.id)) if @current_cart
 - for order in orders
-  Order!
+  .pt-2
+    = link_to order.vendor.name, order.vendor, class: 'text-dark'
+    - for orderproduct in order.orderproducts
+      = render partial: 'orderproducts/item', locals: {orderproduct: orderproduct}
+
 - if orders.empty?
   %p No past orders found.
 

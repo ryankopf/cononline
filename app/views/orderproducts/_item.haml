@@ -1,0 +1,9 @@
+- product = orderproduct.product
+.d-flex.p-2.pb-4{class: "product_#{orderproduct.product_id}"}
+  .name{style:'width:100%;'}
+    = orderproduct.product.name
+  .text_muted{style:'width:100px;'}
+    = orderproduct.quantity
+  .text_muted{style:'width:120px;'}
+    $
+    = product.get_price(orderproduct.quantity)
