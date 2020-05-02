@@ -37,6 +37,10 @@
               %a.p-2.btn.btn-secondary{href: '/orders'}
                 Orders
 
+    - if controller_name == 'vendors' && action_name == 'show'
+      - if @vendor && @vendor.image.attached?
+        .rhino{style: "padding:20px;background-image:url('#{url_for(@vendor.image)}');",
+               class: "#{400 < 500 ? 'small' : ''}"}
     .container
       - if (@current_user && (!@current_user.email_verified))
         .email-notice.alert.alert-primary
