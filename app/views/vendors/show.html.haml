@@ -22,7 +22,7 @@
 .row
   - for product in @vendor.products
     - next if product.deleted
-      = render product, locals: {product: product}
+    = render product, locals: {product: product}
 
 %br
 
