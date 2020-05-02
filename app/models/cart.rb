@@ -11,7 +11,7 @@ class Cart < ApplicationRecord
   def remove_product(product_id,quantity)
     cart_product = Cartproduct.find_or_create_by(cart_id: self.id, product_id: product_id)
     cart_product.decrement!(:quantity, quantity)
-    cart_product.destroy if quantity <= 0
+    cart_product.destroy if cart_product.quantity <= 0
   end
 
   def paid!(params)
