@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/privacy', to: 'pages#privacy'
   get '/terms', to: 'pages#terms'
+  get '/consweet', to: 'pages#consweet'
   get '/dealers', to: 'vendors#index', category: 'dealer'
   get '/artists', to: 'vendors#index', category: 'artist'
 
