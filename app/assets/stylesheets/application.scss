@@ -40,6 +40,9 @@
   align-items: center;
   justify-content: center;
 }
+.card-img-center img {
+  max-width: 100%;
+}
 .rhino {
   background-size:cover;height:390px;left:0;width:100%;background-position:top center;
 }
